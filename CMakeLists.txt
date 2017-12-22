@@ -31,10 +31,16 @@ target_sources(alexlib PRIVATE
         # Source Files
         src/alexlib.cpp
         src/SDL_glwindow.cpp
-        src/SDL_window.cpp)
+        src/SDL_window.cpp
+
+        # imgui
+        external/imgui/imgui.cpp
+        external/imgui/imgui_draw.cpp
+        external/imgui/imgui.h)
 
 target_include_directories(alexlib PRIVATE
         include
+        external/imgui
         external/glew/include
         external/SOIL/src
         external/glm
