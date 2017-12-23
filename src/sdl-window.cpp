@@ -6,7 +6,7 @@
  */
 
 #include <SDL2/SDL.h>
-#include <SDL_window.h>
+#include <sdl-window.h>
 #include <cassert>
 #include <iostream>
 

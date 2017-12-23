@@ -11,11 +11,11 @@
 namespace alexlib {
     namespace sdl2 {
         class SDL_window;
-        class SDL_glwindow;
+        class SDL;
     }
     static bool is_running = false;
     static alexlib::sdl2::SDL_window* window_handle;
-    static alexlib::sdl2::SDL_glwindow* glwindow_handle;
+    static alexlib::sdl2::SDL* glwindow_handle;
 
     void initialize();
     void start();

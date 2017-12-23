@@ -9,18 +9,18 @@
 #ifndef BREAKOUT_SDL_GLWINDOW_H
 #define BREAKOUT_SDL_GLWINDOW_H
 
-#include <SDL_window.h>
+#include <sdl-window.h>
 
 typedef void* SDL_GLContext;
 
 namespace alexlib {
     namespace sdl2 {
 
-        class SDL_glwindow {
+        class SDL {
         public:
             void update();
 
-            virtual ~SDL_glwindow();
+            virtual ~SDL();
 
             SDL_window* get_sdl_window() const;
 
@@ -29,22 +29,22 @@ namespace alexlib {
              * @param window Pointer to an SDL2 window, used in context creation
              * @return OpenGL-friendly window
              */
-            static SDL_glwindow* create(SDL_window* window);
+            static SDL* create(SDL_window* window);
 
         private:
-            SDL_glwindow(SDL_GLContext context_handle, SDL_window* window);
+            SDL(SDL_GLContext context_handle, SDL_window* window);
 
             SDL_GLContext context;
             SDL_window* window;
             bool loaded_successfully;
 
-            SDL_glwindow &operator=(SDL_glwindow &&) = delete;
+            SDL &operator=(SDL &&) = delete;
 
-            SDL_glwindow(SDL_glwindow &&) = delete;
+            SDL(SDL &&) = delete;
 
-            SDL_glwindow(const SDL_glwindow &) = delete;
+            SDL(const SDL &) = delete;
 
-            SDL_glwindow &operator=(const SDL_glwindow &) = delete;
+            SDL &operator=(const SDL &) = delete;
         };
     }
 }

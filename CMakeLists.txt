@@ -25,13 +25,15 @@ set(CMAKE_C_FLAGS_DEBUG "-DDEBUG")
 target_sources(alexlib PRIVATE
         # Headers
         include/alexlib.h
-        include/SDL_glwindow.h
-        include/SDL_window.h
+        include/sdl-glwindow.h
+        include/sdl-window.h
+        include/sdl-imgui.h
 
         # Source Files
         src/alexlib.cpp
-        src/SDL_glwindow.cpp
-        src/SDL_window.cpp
+        src/sdl-glwindow.cpp
+        src/sdl-window.cpp
+        src/sdl-imgui.cpp
 
         # imgui
         external/imgui/imgui.cpp

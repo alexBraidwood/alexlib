@@ -1,12 +1,12 @@
 #include <alexlib.h>
-#include <SDL_window.h>
-#include <SDL_glwindow.h>
+#include <sdl-window.h>
+#include <SDL-glwindow.h>
 #include <SDL_events.h>
 
 namespace alexlib {
     void initialize() {
         window_handle = alexlib::sdl2::SDL_window::create(800, 600, "Game Window");
-        glwindow_handle = alexlib::sdl2::SDL_glwindow::create(window_handle);
+        glwindow_handle = alexlib::sdl2::SDL::create(window_handle);
         SDL_ShowWindow(window_handle->get());
     }
 
