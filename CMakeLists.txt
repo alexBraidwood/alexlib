@@ -20,20 +20,20 @@ add_subdirectory(external/SDL2)
 find_library(GL_Library
         NAMES opengl32)
 
-set(CMAKE_C_FLAGS_DEBUG "-DDEBUG")
-
 target_sources(alexlib PRIVATE
         # Headers
         include/alexlib.h
         include/sdl-glwindow.h
         include/sdl-window.h
         include/sdl-imgui.h
+        include/game-clock.h
 
         # Source Files
         src/alexlib.cpp
         src/sdl-glwindow.cpp
         src/sdl-window.cpp
         src/sdl-imgui.cpp
+        src/game-clock.cpp
 
         # imgui
         external/imgui/imgui.cpp

@@ -5,9 +5,8 @@
  * Notice: Copyright (c) 2017 The Bat Forge. All Rights Reserved.
  */
 
-#include <SDL-glwindow.h>
+#include <sdl-glwindow.h>
 #include <SDL2/SDL.h>
-#include <sdl-window.h>
 #include <GL/glew.h>
 
 using namespace alexlib::sdl2;
@@ -38,6 +37,10 @@ SDL* SDL::create(SDL_window* window) {
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
+        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+        SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
         auto glContext = SDL_GL_CreateContext(window->get());
 
