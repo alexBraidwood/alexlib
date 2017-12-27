@@ -20,7 +20,7 @@
 
 #include <SDL2/SDL.h>
 
-using namespace alexlib::imgui::globals;
+using namespace alexlib::globals;
 
 // This is the main rendering function that you have to implement and provide to ImGui (via setting up 'RenderDrawListsFn' in the ImGuiIO structure)
 // Note that this implementation is little overcomplicated because we are saving/setting up/restoring every OpenGL state explicitly, in order to be able to run within any OpenGL engine that doesn't do so.
@@ -152,12 +152,12 @@ void alexlib::imgui::render_draw_lists(ImDrawData* draw_data)
     glScissor(last_scissor_box[0], last_scissor_box[1], (GLsizei)last_scissor_box[2], (GLsizei)last_scissor_box[3]);
 }
 
-static const char* alexlib::imgui::get_clipboard_text(void*)
+const char* alexlib::imgui::get_clipboard_text(void*)
 {
     return SDL_GetClipboardText();
 }
 
-static void alexlib::imgui::set_clipboard_text(void*, const char* text)
+void alexlib::imgui::set_clipboard_text(void*, const char* text)
 {
     SDL_SetClipboardText(text);
 }

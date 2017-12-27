@@ -16,35 +16,34 @@ typedef void* SDL_GLContext;
 namespace alexlib {
     namespace sdl2 {
 
-        class SDL {
+        class Sdl_gl_window {
         public:
             void update();
 
-            virtual ~SDL();
+            virtual ~Sdl_gl_window();
 
             SDL_window* get_sdl_window() const;
+
+
+            Sdl_gl_window& operator=(Sdl_gl_window &&) = delete;
+            Sdl_gl_window(Sdl_gl_window &&) = delete;
+            Sdl_gl_window(const Sdl_gl_window &) = delete;
+            Sdl_gl_window& operator=(const Sdl_gl_window &) = delete;
 
             /**
              * Factory method for generating GLWindow with an OpenGL-friendly context
              * @param window Pointer to an SDL2 window, used in context creation
              * @return OpenGL-friendly window
              */
-            static SDL* create(SDL_window* window);
+            static Sdl_gl_window* create(SDL_window* window);
 
         private:
-            SDL(SDL_GLContext context_handle, SDL_window* window);
+            Sdl_gl_window(SDL_GLContext context_handle, SDL_window* window);
 
             SDL_GLContext context;
             SDL_window* window;
             bool loaded_successfully;
 
-            SDL &operator=(SDL &&) = delete;
-
-            SDL(SDL &&) = delete;
-
-            SDL(const SDL &) = delete;
-
-            SDL &operator=(const SDL &) = delete;
         };
     }
 }

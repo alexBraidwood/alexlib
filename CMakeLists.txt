@@ -23,14 +23,14 @@ find_library(GL_Library
 target_sources(alexlib PRIVATE
         # Headers
         include/alexlib.h
-        include/sdl-glwindow.h
+        include/sdl-gl-window.h
         include/sdl-window.h
         include/sdl-imgui.h
         include/game-clock.h
 
         # Source Files
         src/alexlib.cpp
-        src/sdl-glwindow.cpp
+        src/sdl-gl-window.cpp
         src/sdl-window.cpp
         src/sdl-imgui.cpp
         src/game-clock.cpp

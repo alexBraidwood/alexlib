@@ -5,20 +5,20 @@
  * Notice: Copyright (c) 2017 The Bat Forge. All Rights Reserved.
  */
 
-#include <sdl-glwindow.h>
+#include <sdl-gl-window.h>
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
 using namespace alexlib::sdl2;
 
-SDL::SDL(SDL_GLContext context_handle, SDL_window* window)
+Sdl_gl_window::Sdl_gl_window(SDL_GLContext context_handle, SDL_window* window)
         :   context(context_handle),
             loaded_successfully(false),
             window(window)  {
 
 }
 
-SDL::~SDL() {
+Sdl_gl_window::~Sdl_gl_window() {
     if (this->context != nullptr) {
         SDL_GL_DeleteContext(this->context);
     }
@@ -27,11 +27,11 @@ SDL::~SDL() {
     }
 }
 
-void SDL::update() {
+void Sdl_gl_window::update() {
     SDL_GL_SwapWindow(window->get());
 }
 
-SDL* SDL::create(SDL_window* window) {
+Sdl_gl_window* Sdl_gl_window::create(SDL_window* window) {
     if(window) {
         /* TODO(Alex): GL Settings */
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -51,13 +51,13 @@ SDL* SDL::create(SDL_window* window) {
             auto error = glewGetErrorString(err);
         }
 
-        return new SDL(glContext, window);
+        return new Sdl_gl_window(glContext, window);
     }
 
     return nullptr;
 }
 
-SDL_window* SDL::get_sdl_window() const {
+SDL_window* Sdl_gl_window::get_sdl_window() const {
     return window;
 }
 
