@@ -6,7 +6,7 @@
  */
 
 #include <sdl-gl-window.h>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <GL/glew.h>
 
 using namespace alexlib::sdl2;

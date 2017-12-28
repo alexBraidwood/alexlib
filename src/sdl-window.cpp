@@ -5,7 +5,7 @@
  * Notice: Copyright (c) 2017 The Bat Forge. All Rights Reserved.
  */
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <sdl-window.h>
 #include <cassert>
 #include <iostream>

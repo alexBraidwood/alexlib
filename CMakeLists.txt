@@ -5,11 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_library(alexlib "")
 
-if (WIN32)
-    set(GLEW_BUILD "GLEW_STATIC")
-    set(GLEW_STATIC)
-endif()
-
 include(cmake/TargetArch.cmake)
 target_architecture(ARCH_TYPE)
 

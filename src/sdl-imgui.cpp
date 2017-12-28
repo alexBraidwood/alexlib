@@ -18,7 +18,7 @@
 #include "imgui.h"
 #include "sdl-imgui.h"
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 using namespace alexlib::globals;
 
