@@ -12,8 +12,7 @@ add_subdirectory(external/glew/build/cmake)
 add_subdirectory(external/SOIL)
 add_subdirectory(external/SDL2)
 
-find_library(GL_Library
-        NAMES opengl32)
+find_package(OpenGL REQUIRED)
 
 target_sources(alexlib PRIVATE
         # Headers
@@ -45,7 +44,7 @@ target_include_directories(alexlib PRIVATE
 
 
 if(WIN32)
-    target_link_libraries(alexlib PUBLIC -static-libstdc++ -lmingw32 -lrpcrt4 SDL2 SDL2Main SOIL glew_s ${GL_Library})
+    target_link_libraries(alexlib PUBLIC -static-libstdc++ -lmingw32 -lrpcrt4 SDL2 SDL2Main SOIL glew_s ${OPENGL_LIBRARIES})
 else()
-    target_link_libraries(alexlib PUBLIC uuid glew SOIL SDL2 ${GL_LIBRARY})
+    target_link_libraries(alexlib PUBLIC uuid glew SOIL SDL2 ${OPENGL_LIBRARIES})
 endif()
